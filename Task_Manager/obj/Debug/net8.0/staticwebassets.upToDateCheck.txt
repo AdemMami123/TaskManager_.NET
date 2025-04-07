@@ -80,6 +80,7 @@ wwwroot\dist\pages\widgets\cards.html
 wwwroot\dist\pages\widgets\info-box.html
 wwwroot\dist\pages\widgets\small-box.html
 wwwroot\favicon.ico
+wwwroot\js\darkmode.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

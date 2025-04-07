@@ -1,28 +1,201 @@
-﻿@using Microsoft.AspNetCore.Identity
-
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
-
-
+﻿@model Task_Manager.ViewModels.DashboardViewModel
 @{
-   
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    
-    @if(User.IsInRole("Manager"))
-    {
-        <h1 class="display-4">Welcome Manager</h1>
-    }
-    else if (User.IsInRole("Admin")){
-        <h1 class="display-4">Welcome Admin</h1>
+<div class="container-fluid px-4 py-3">
+    <h1 class="display-4 mb-4">Task Managers Dashboard</h1>
 
-    }else{
-        <h1 class="display-4">Welcome Developer</h1>
-    }
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center position-relative">
+                    <h2 class="card-title">@Model.ProjectCount</h2>
+                    <p class="card-text fs-5">Total Projects</p>
+                    <i class="fas fa-briefcase fa-3x opacity-50 position-absolute bottom-0 end-0 m-3"></i>
+                </div>
+            </div>
+        </div>
 
-    
+        <div class="col-md-3 mb-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center position-relative">
+                    <h2 class="card-title">@Model.TotalTasks</h2>
+                    <p class="card-text fs-5">Total Tasks</p>
+                    <i class="fas fa-tasks fa-3x opacity-50 position-absolute bottom-0 end-0 m-3"></i>
+                </div>
+            </div>
+        </div>
 
-    
+        <div class="col-md-3 mb-3">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center position-relative">
+                    <h2 class="card-title">@Model.CompletedTasks</h2>
+                    <p class="card-text fs-5">Completed Tasks</p>
+                    <i class="fas fa-check-circle fa-3x opacity-50 position-absolute bottom-0 end-0 m-3"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card bg-danger text-white h-100">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center position-relative">
+                    <h2 class="card-title">@Model.OverdueTasks</h2>
+                    <p class="card-text fs-5">Overdue Tasks</p>
+                    <i class="fas fa-exclamation-triangle fa-3x opacity-50 position-absolute bottom-0 end-0 m-3"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bars -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">Task Completion Progress</h5>
+                </div>
+                <div class="card-body">
+                    <div class="progress mb-3" style="height: 24px;">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: @Model.CompletionRate%;" 
+                             aria-valuenow="@Model.CompletionRate" aria-valuemin="0" aria-valuemax="100">
+                            @Math.Round(Model.CompletionRate, 1)% Complete
+                        </div>
+                    </div>
+                    <div class="progress" style="height: 24px;">
+                        <div class="progress-bar bg-danger" role="progressbar" 
+                             style="width: @Model.OverdueRate%;" 
+                             aria-valuenow="@Model.OverdueRate" aria-valuemin="0" aria-valuemax="100">
+                            @Math.Round(Model.OverdueRate, 1)% Overdue
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Distribution Chart -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">Team Distribution</h5>
+                </div>
+                <div class="card-body p-2">
+                    <canvas id="teamChart" style="max-height: 250px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Charts -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">Projects Completion Rate</h5>
+                </div>
+                <div class="card-body p-2">
+                    <canvas id="projectCompletionChart" style="max-height: 250px;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">Task Status Distribution</h5>
+                </div>
+                <div class="card-body p-2">
+                    <canvas id="taskStatusChart" style="max-height: 250px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Team Distribution Doughnut Chart
+        const teamChart = new Chart(document.getElementById('teamChart').getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Managers', 'Developers'],
+                datasets: [{
+                    data: [@Model.ManagerCount, @Model.DeveloperCount],
+                    backgroundColor: ['#6f42c1', '#fd7e14'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Project Completion Bar Chart
+        const projectCompletionChart = new Chart(document.getElementById('projectCompletionChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.ProjectNames)),
+                datasets: [{
+                    label: 'Completion Rate (%)',
+                    data: @Html.Raw(Json.Serialize(Model.ProjectCompletionRates)),
+                    backgroundColor: '#0dcaf0',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Task Status Pie Chart
+        const taskStatusChart = new Chart(document.getElementById('taskStatusChart').getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: ['Completed', 'In Progress', 'Overdue'],
+                datasets: [{
+                    data: [
+                        @Model.CompletedTasks,
+                        @(Model.TotalTasks - Model.CompletedTasks - Model.OverdueTasks),
+                        @Model.OverdueTasks
+                    ],
+                    backgroundColor: ['#198754', '#0dcaf0', '#dc3545'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PYz1RtOs57l6r80QL+4Aqhbg/5mrevSYx7jlJNrnDt0=",
+  "Hash": "juvY4KiUTiEiNvZOi46VsGwS4ETSMxOxI2Zt4wkS2aU=",
   "Source": "Task_Manager",
   "BasePath": "_content/Task_Manager",
   "Mode": "Default",
@@ -3041,6 +3041,27 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\darkmode.js",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "js/darkmode#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\darkmode.js"
+    },
+    {
       "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\site.js",
       "SourceId": "Task_Manager",
       "SourceType": "Discovered",
@@ -4283,7 +4304,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 11:46:36 GMT"
+          "Value": "Mon, 07 Apr 2025 21:52:30 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4320,7 +4341,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Mar 2025 11:46:36 GMT"
+          "Value": "Mon, 07 Apr 2025 21:52:30 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13205,6 +13226,88 @@
       ]
     },
     {
+      "Route": "js/darkmode.5ipweew5fc.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\darkmode.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 21:50:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ipweew5fc"
+        },
+        {
+          "Name": "label",
+          "Value": "js/darkmode.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "js/darkmode.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\darkmode.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 21:50:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
       "Route": "js/site.js",
       "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\site.js",
       "Selectors": [],
@@ -13227,7 +13330,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 21:52:31 GMT"
+          "Value": "Mon, 07 Apr 2025 21:41:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13264,7 +13367,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 17 Mar 2025 21:52:31 GMT"
+          "Value": "Mon, 07 Apr 2025 21:41:03 GMT"
         },
         {
           "Name": "Cache-Control",

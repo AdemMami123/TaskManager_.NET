@@ -333,6 +333,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\darkmode.js",
+      "PackagePath": "staticwebassets\\js\\darkmode.js"
+    },
+    {
       "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
