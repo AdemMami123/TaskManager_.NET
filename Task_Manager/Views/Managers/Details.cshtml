@@ -1,0 +1,29 @@
+﻿@model Task_Manager.ViewModels.ManagerDetailsViewModel
+
+@{
+    ViewData["Title"] = "Manager Details";
+}
+
+<h2 class="mb-3">Manager: @Model.ManagerName</h2>
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Project Name</th>
+            <th>Task Count</th>
+            <th>Deadline</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model.Projects)
+        {
+            <tr>
+                <td>@project.ProjectName</td>
+                <td>@project.TaskCount</td>
+                <td>@project.Deadline.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary mt-2">Back to List</a>

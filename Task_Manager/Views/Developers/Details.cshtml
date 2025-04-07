@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Task_Manager.ViewModels.DeveloperDetailsViewModel>
+
+@{
+    ViewData["Title"] = "Developer Task Details";
+    var developerName = ViewBag.DeveloperName as string;
+}
+
+<!-- Custom CSS for button hover effects -->
+<style>
+    .btn:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+    }
+</style>
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="display-5">@developerName - Task Details</h1>
+        <a asp-action="Index" class="btn btn-secondary">Back to Developer List</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Task Name</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TaskName</td>
+                            <td>@item.ProjectName</td>
+                            <td>@item.ProgressRate</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

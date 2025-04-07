@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@fontsource/source-sans-3": "^5.2.6",
+    "admin-lte": "^4.0.0-beta3"
+  }
+}

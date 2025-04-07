@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Task_Manager.ViewModels.ProjectManagementViewModel>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<!-- Custom CSS for button hover effects -->
+<style>
+    .btn:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+    }
+</style>
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="display-5">Projects</h1>
+        <a asp-action="Create" class="btn btn-primary">Create New Project</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Manager Name</th>
+                        <th scope="col">Number of Tasks</th>
+                        <th scope="col">Progress (%)</th>
+                        <th scope="col" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProjectName</td>
+                            <td>@item.ManagerName</td>
+                            <td>@item.TaskCount</td>
+                            <td>@String.Format("{0:0.##}", item.ProgressRate)</td>
+                            <td class="text-center">
+                                <a asp-action="Edit" asp-route-id="@item.ProjectId" class="btn btn-sm btn-warning me-1">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.ProjectId" class="btn btn-sm btn-info me-1">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.ProjectId" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
