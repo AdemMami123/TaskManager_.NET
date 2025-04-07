@@ -144,6 +144,51 @@ namespace Task_Manager.Controllers
             return View(taskItem);
         }
 
+        //check box logic
+        [HttpPost]
+        public async Task<IActionResult> ToggleComplete(int id, bool isCompleted)
+        {
+            var task = await _context.Tasks.FindAsync(id);
+            if (task != null)
+            {
+                task.IsCompleted = isCompleted;
+                await _context.SaveChangesAsync();
+                
+                // Update developer progress
+                await UpdateDeveloperProgress(task.DeveloperId);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        
+        // Helper method to update developer progress
+        private async Task UpdateDeveloperProgress(int developerId)
+        {
+            // Get the developer
+            var developer = await _context.Developers.FindAsync(developerId);
+            
+            if (developer != null)
+            {
+                // Get all tasks for this developer
+                var developerTasks = await _context.Tasks
+                    .Where(t => t.DeveloperId == developerId)
+                    .ToListAsync();
+                
+                int totalTasks = developerTasks.Count;
+                
+                // If developer has tasks, calculate progress percentage
+                if (totalTasks > 0)
+                {
+                    int completedTasks = developerTasks.Count(t => t.IsCompleted);
+                    // Calculate percentage and round to 2 decimal places
+                    double progressPercentage = ((double)completedTasks / totalTasks) * 100;
+                    
+                    // If you have a Progress property in Developer model, update it here
+                    // developer.Progress = progressPercentage;
+                    // await _context.SaveChangesAsync();
+                }
+            }
+        }
+
         // POST: TaskItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

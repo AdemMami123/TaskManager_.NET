@@ -269,3 +269,4 @@ C:\Users\ademm\source\repos\Task_Manager\Task_Manager\bin\Debug\net8.0\System.Te
 C:\Users\ademm\source\repos\Task_Manager\Task_Manager\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\ademm\source\repos\Task_Manager\Task_Manager\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\ademm\source\repos\Task_Manager\Task_Manager\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\ademm\source\repos\Task_Manager\Task_Manager\obj\Debug\net8.0\Task_Manager.sourcelink.json

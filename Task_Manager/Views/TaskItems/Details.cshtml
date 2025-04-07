@@ -1,54 +1,55 @@
 ﻿@model Task_Manager.Models.TaskItem
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Task Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>TaskItem</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Developer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Developer.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Project)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Project.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Progress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Progress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deadline)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deadline)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Advancement)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Advancement)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm rounded-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Task Details</h4>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-bordered table-hover mb-0">
+                        <tbody>
+                            <tr>
+                                <th class="w-25 bg-light">Name</th>
+                                <td>@Html.DisplayFor(model => model.Name)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Developer</th>
+                                <td>@Html.DisplayFor(model => model.Developer.Id)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Project</th>
+                                <td>@Html.DisplayFor(model => model.Project.Id)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Progress</th>
+                                <td>@Html.DisplayFor(model => model.Progress)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Deadline</th>
+                                <td>@Html.DisplayFor(model => model.Deadline)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Advancement</th>
+                                <td>@Html.DisplayFor(model => model.Advancement)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-primary">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
