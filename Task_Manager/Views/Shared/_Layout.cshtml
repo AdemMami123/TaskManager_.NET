@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,10 +13,51 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Task_Manager.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/notifications.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/colors.css" />
+    <link rel="stylesheet" href="~/css/crud.css" />
 
     <style>
         body {
+            background-color: var(--background-light);
+            color: var(--text-primary);
             transition: background-color 0.3s, color 0.3s;
+            padding-top: 56px; /* Add padding to body to account for fixed navbar */
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1030;
+            padding: 8px 16px;
+        }
+
+        .navbar-light .navbar-brand, 
+        .navbar-light .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-light .navbar-brand:hover, 
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .navbar .btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .navbar-light .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .navbar-light .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
         /* Sidebar Styling */
@@ -24,56 +69,82 @@
             left: 0;
             background: linear-gradient(145deg, #37474f, #263238);
             color: white;
-            padding-top: 60px;
+            padding-top: 76px; /* Adjusted to account for navbar */
             transition: all 0.3s;
             overflow-y: auto;
             z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         }
 
-            #sidebar .nav-link {
-                color: white;
-                padding: 10px 20px;
-                transition: background-color 0.2s;
-            }
+        #sidebar .nav-link {
+            color: white;
+            padding: 12px 20px;
+            transition: all 0.2s;
+            border-radius: 0;
+            margin: 2px 0;
+            font-weight: 500;
+        }
 
-                #sidebar .nav-link:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                    border-radius: 5px;
-                }
+        #sidebar .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        #sidebar .nav-link i {
+            width: 24px;
+            text-align: center;
+            margin-right: 10px;
+        }
 
         #main-content {
             margin-left: 250px;
             transition: margin-left 0.3s;
             padding: 20px;
+            padding-top: 10px;
         }
 
-        .navbar {
-            transition: background-color 0.3s;
-            background: linear-gradient(145deg, #2196f3, #0d47a1);
+        /* Buttons in navbar styling */
+        .navbar .btn-outline-dark, .navbar .notification-bell {
+            color: white;
+            border-color: rgba(255,255,255,0.5);
+            padding: 6px 10px;
+            margin-right: 8px;
         }
-
-            .navbar .btn {
-                transition: background-color 0.3s, color 0.3s;
-            }
-
-        /* Dark Mode */
-        .dark-mode {
-            background-color: #121212;
+        
+        .navbar .btn-outline-dark:hover, .navbar .notification-bell:hover {
+            background-color: rgba(255,255,255,0.1);
             color: white;
         }
 
-            .dark-mode .navbar {
-                background: linear-gradient(145deg, #1e1e1e, #121212);
-            }
+        /* Dark Mode */
+        .dark-mode {
+            background-color: var(--dark-background);
+            color: var(--dark-text-primary);
+        }
 
-            .dark-mode #sidebar {
-                background: linear-gradient(145deg, #1c1c1c, #101010);
-            }
+        .dark-mode .navbar {
+            background-color: var(--dark-primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
 
-            .dark-mode .card, .dark-mode .footer {
-                background-color: #333;
-                color: white;
-            }
+        .dark-mode #sidebar {
+            background-color: var(--dark-card-background);
+            color: var(--dark-text-primary);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+        }
+
+        .dark-mode .card, .dark-mode .footer {
+            background-color: var(--dark-card-background);
+            color: var(--dark-text-primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .card {
+            background-color: var(--card-background);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: none;
+            border-radius: 8px;
+        }
 
         /* Smooth toggling */
         .nav-link, .navbar, .card, #sidebar {
@@ -82,11 +153,8 @@
     </style>
 </head>
 <body>
-
-    @if (User.Identity.IsAuthenticated)
-    {
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             <div class="container-fluid">
                 <button class="btn btn-outline-light me-3" id="toggleSidebar">
                     <i class="fas fa-bars"></i>
@@ -97,21 +165,42 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="btn btn-outline-light me-3" id="darkModeToggle">
-                                <i class="fas fa-moon"></i>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <partial name="_LoginPartial" />
-                        </li>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <!-- Navigation links have been removed from here -->
                     </ul>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="btn btn-outline-dark me-2" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <!-- Notification Bell -->
+                    <div class="position-relative me-3">
+                        <button type="button" class="btn notification-bell">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">0</span>
+                        </button>
+                        <div class="notification-panel">
+                            <div class="notification-header">
+                                <h6 class="mb-0">Notifications</h6>
+                                <div>
+                                    <button class="btn btn-sm mark-all-read">Mark all as read</button>
+                                    <button class="btn btn-sm clear-all">Clear all</button>
+                                </div>
+                            </div>
+                            <ul class="notification-list"></ul>
+                        </div>
+                    </div>
+                    
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+    </header>
 
+    @if (User.Identity.IsAuthenticated)
+    {
         <!-- Sidebar -->
         <div id="sidebar">
             <ul class="nav flex-column">
@@ -130,9 +219,12 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="TaskItems" asp-action="Index"><i class="fa-solid fa-list-check me-2"></i> Tasks</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="User" asp-action="Index"><i class="fas fa-user me-2"></i> Users</a>
-                </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="User" asp-action="Index"><i class="fas fa-user me-2"></i> Users</a>
+                    </li>
+                }
             </ul>
         </div>
     }
@@ -141,6 +233,14 @@
     <div id="main-content" style="@(!User.Identity.IsAuthenticated ? "margin-left: 0;" : "")">
         <div class="container mt-5">
             <main role="main">
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Developer"))
+                {
+                    <!-- Show a notice to developer users about having view-only access -->
+                    <div class="alert alert-info mb-4">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Developer Mode:</strong> You have view-only access to the system. You can view all information but cannot create, edit, or delete data.
+                    </div>
+                }
                 @RenderBody()
             </main>
         </div>
@@ -152,8 +252,243 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <!-- Notification System Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize notification service
+            const notificationService = {
+                storageKey: 'userNotifications',
+                notifications: [],
+                
+                getNotifications() {
+                    const storedNotifications = localStorage.getItem(this.storageKey);
+                    return storedNotifications ? JSON.parse(storedNotifications) : [];
+                },
+                
+                saveNotifications() {
+                    localStorage.setItem(this.storageKey, JSON.stringify(this.notifications));
+                    this.updateBadge();
+                },
+                
+                addNotification(type, title, message, dueDate, relatedId) {
+                    this.notifications = this.getNotifications();
+                    
+                    // Check for duplicates
+                    const isDuplicate = this.notifications.some(n => 
+                        n.type === type && 
+                        n.relatedId === relatedId && 
+                        n.dueDate === dueDate
+                    );
+                    
+                    if (isDuplicate) return;
+                    
+                    const notification = {
+                        id: Date.now().toString(),
+                        type,
+                        title,
+                        message,
+                        dueDate,
+                        relatedId,
+                        createdAt: new Date().toISOString(),
+                        isRead: false
+                    };
+                    
+                    this.notifications.unshift(notification);
+                    this.saveNotifications();
+                    return notification;
+                },
+                
+                markAsRead(notificationId) {
+                    this.notifications = this.getNotifications();
+                    const notification = this.notifications.find(n => n.id === notificationId);
+                    if (notification) {
+                        notification.isRead = true;
+                        this.saveNotifications();
+                    }
+                },
+                
+                markAllAsRead() {
+                    this.notifications = this.getNotifications();
+                    this.notifications.forEach(n => n.isRead = true);
+                    this.saveNotifications();
+                },
+                
+                getUnreadCount() {
+                    this.notifications = this.getNotifications();
+                    return this.notifications.filter(n => !n.isRead).length;
+                },
+                
+                clearAll() {
+                    this.notifications = [];
+                    this.saveNotifications();
+                },
+                
+                updateBadge() {
+                    const badge = document.querySelector('.notification-badge');
+                    if (badge) {
+                        const count = this.getUnreadCount();
+                        badge.textContent = count;
+                        badge.style.display = count > 0 ? 'block' : 'none';
+                    }
+                }
+            };
+            
+            // Render notifications in panel
+            function renderNotifications() {
+                const notificationList = document.querySelector('.notification-list');
+                if (!notificationList) return;
+                
+                const notifications = notificationService.getNotifications();
+                
+                if (notifications.length === 0) {
+                    notificationList.innerHTML = '<div class="notification-empty">No notifications available</div>';
+                    return;
+                }
+                
+                notificationList.innerHTML = '';
+                
+                notifications.forEach(notification => {
+                    const date = new Date(notification.createdAt);
+                    const now = new Date();
+                    const timeDiff = Math.floor((now - date) / 1000);
+                    
+                    let timeText = 'Just now';
+                    if (timeDiff >= 60) timeText = `${Math.floor(timeDiff / 60)} min ago`;
+                    if (timeDiff >= 3600) timeText = `${Math.floor(timeDiff / 3600)} hr ago`;
+                    if (timeDiff >= 86400) timeText = `${Math.floor(timeDiff / 86400)} days ago`;
+                    
+                    const notificationItem = document.createElement('li');
+                    notificationItem.className = `notification-item ${notification.isRead ? '' : 'unread'}`;
+                    notificationItem.dataset.id = notification.id;
+                    
+                    notificationItem.innerHTML = `
+                        <div class="notification-item-header">
+                            <span class="notification-item-title">${notification.title}</span>
+                            <span class="notification-item-time">${timeText}</span>
+                        </div>
+                        <div class="notification-item-message">${notification.message}</div>
+                    `;
+                    
+                    notificationList.appendChild(notificationItem);
+                });
+            }
+            
+            // Setup notification event listeners
+            document.addEventListener('click', function(e) {
+                const bell = e.target.closest('.notification-bell');
+                const panel = document.querySelector('.notification-panel');
+                
+                if (bell) {
+                    panel.classList.toggle('show');
+                    if (panel.classList.contains('show')) {
+                        renderNotifications();
+                    }
+                    e.stopPropagation();
+                } else if (panel && !panel.contains(e.target)) {
+                    panel.classList.remove('show');
+                }
+                
+                const item = e.target.closest('.notification-item');
+                if (item) {
+                    notificationService.markAsRead(item.dataset.id);
+                    item.classList.remove('unread');
+                }
+                
+                if (e.target.closest('.mark-all-read')) {
+                    notificationService.markAllAsRead();
+                    document.querySelectorAll('.notification-item').forEach(item => {
+                        item.classList.remove('unread');
+                    });
+                }
+                
+                if (e.target.closest('.clear-all')) {
+                    notificationService.clearAll();
+                    renderNotifications();
+                }
+            });
+            
+            // Initialize notifications and check for deadlines
+            notificationService.updateBadge();
+            
+            // Check for project and task deadlines
+            setTimeout(() => {
+                fetch('/api/projects')
+                    .then(response => response.json())
+                    .then(projects => {
+                        const today = new Date();
+                        
+                        projects.forEach(project => {
+                            if (!project.dueDate) return;
+                            
+                            const dueDate = new Date(project.dueDate);
+                            const daysDiff = Math.floor((dueDate - today) / (1000 * 60 * 60 * 24));
+                            
+                            if (daysDiff <= 3 && daysDiff >= 0) {
+                                const formattedDate = dueDate.toLocaleDateString();
+                                notificationService.addNotification(
+                                    'project',
+                                    'Project Deadline Approaching',
+                                    `⏰ Project ${project.name} is due in ${daysDiff} day(s) (${formattedDate})`,
+                                    project.dueDate,
+                                    project.id
+                                );
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching projects:', error));
+                
+                fetch('/api/tasks')
+                    .then(response => response.json())
+                    .then(tasks => {
+                        const today = new Date();
+                        
+                        tasks.forEach(task => {
+                            if (!task.dueDate) return;
+                            
+                            const dueDate = new Date(task.dueDate);
+                            const daysDiff = Math.floor((dueDate - today) / (1000 * 60 * 60 * 24));
+                            
+                            if (daysDiff <= 1 && daysDiff >= 0) {
+                                const formattedDate = dueDate.toLocaleDateString();
+                                notificationService.addNotification(
+                                    'task',
+                                    'Task Due Soon',
+                                    `📝 Task ${task.name || 'Untitled'} is due ${daysDiff === 0 ? 'today' : 'tomorrow'} (${formattedDate})`,
+                                    task.dueDate,
+                                    task.id
+                                );
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching tasks:', error));
+            }, 1000);
+        });
+    </script>
+    
+    <!-- Hide action buttons for Developer role -->
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Developer"))
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Hide all create buttons
+                const createButtons = document.querySelectorAll('a.btn-primary:contains("Create")');
+                createButtons.forEach(btn => btn.style.display = 'none');
+                
+                // Hide all edit/delete buttons
+                const editButtons = document.querySelectorAll('a[asp-action="Edit"], a.btn-warning, button:contains("Edit")');
+                editButtons.forEach(btn => btn.style.display = 'none');
+                
+                const deleteButtons = document.querySelectorAll('a[asp-action="Delete"], a.btn-danger, button:contains("Delete")');
+                deleteButtons.forEach(btn => btn.style.display = 'none');
+                
+                // Use jQuery contains selector for text-based filtering
+                $('a:contains("Edit"), a:contains("Delete"), button:contains("Edit"), button:contains("Delete")').hide();
+                $('a:contains("Create")').hide();
+            });
+        </script>
+    }
     @await RenderSectionAsync("Scripts", required: false)
-
     <script>
         // Sidebar Toggle
         document.getElementById("toggleSidebar")?.addEventListener("click", function () {
@@ -172,9 +507,7 @@
         const darkModeToggle = document.getElementById("darkModeToggle");
         const body = document.body;
         const isDarkMode = localStorage.getItem("darkMode") === "true";
-
         if (isDarkMode) body.classList.add("dark-mode");
-
         darkModeToggle?.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
             localStorage.setItem("darkMode", body.classList.contains("dark-mode"));

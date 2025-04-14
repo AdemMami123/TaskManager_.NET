@@ -1,36 +1,53 @@
 ﻿@model Task_Manager.Models.Developer
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Developer";
 }
 
-<h1>Create</h1>
-
-<h4>Developer</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Create New Developer</h3>
+                </div>
+                <div class="card-body">
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["ErrorMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+                    
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="control-label">Developer Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Enter developer name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mb-4">
+                            <label asp-for="Position" class="control-label">Developer Position</label>
+                            <input asp-for="Position" class="form-control" placeholder="Enter position (e.g. Front-end Developer)" />
+                            <span asp-validation-for="Position" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Create Developer
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Position" class="control-label"></label>
-                <input asp-for="Position" class="form-control" />
-                <span asp-validation-for="Position" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\Task_Manager.wn9ucwrcf7.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\colors.css",
+      "PackagePath": "staticwebassets\\css\\colors.css"
+    },
+    {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\crud.css",
+      "PackagePath": "staticwebassets\\css\\crud.css"
+    },
+    {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\notifications.css",
+      "PackagePath": "staticwebassets\\css\\notifications.css"
+    },
+    {
       "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -335,6 +347,18 @@
     {
       "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\darkmode.js",
       "PackagePath": "staticwebassets\\js\\darkmode.js"
+    },
+    {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationChecker.js",
+      "PackagePath": "staticwebassets\\js\\notificationChecker.js"
+    },
+    {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationService.js",
+      "PackagePath": "staticwebassets\\js\\notificationService.js"
+    },
+    {
+      "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationUI.js",
+      "PackagePath": "staticwebassets\\js\\notificationUI.js"
     },
     {
       "Id": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\site.js",

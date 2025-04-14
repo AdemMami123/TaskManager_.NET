@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "ContainingType": "Task_Manager.Controllers.ApiController",
+    "Method": "GetProjects",
+    "RelativePath": "api/projects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Task_Manager.Controllers.ApiController",
+    "Method": "GetTasks",
+    "RelativePath": "api/tasks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

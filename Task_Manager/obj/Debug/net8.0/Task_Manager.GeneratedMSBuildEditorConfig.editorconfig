@@ -240,6 +240,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcU3RhdGlzdGljcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/ProjectRoles/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFJvbGVzXE1hbmFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/Projects/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -262,6 +266,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/Shared/_ActionButtons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY3Rpb25CdXR0b25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/Shared/_LoginPartial.cshtml]
@@ -302,6 +310,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/User/RoleManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSb2xlTWFuYWdlbWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ademm/source/repos/Task_Manager/Task_Manager/Views/_ViewImports.cshtml]

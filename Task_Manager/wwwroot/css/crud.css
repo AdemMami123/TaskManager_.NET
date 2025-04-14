@@ -1,0 +1,120 @@
+/* CRUD specific styles */
+
+/* Table headers */
+.table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-hover);
+}
+
+/* Action buttons */
+.btn-edit {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #00b5b1;
+    border-color: #00b5b1;
+    color: white;
+}
+
+.btn-details {
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+    color: white;
+}
+
+.btn-details:hover {
+    background-color: #0984e3;
+    border-color: #0984e3;
+    color: white;
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+.btn-create {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.btn-create:hover {
+    background-color: #00b894;
+    border-color: #00b894;
+    color: white;
+}
+
+/* Form elements */
+.form-group label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.form-control {
+    border-radius: 6px;
+    border-color: var(--border-color);
+}
+
+/* Card headers for CRUD pages */
+.crud-card-header {
+    background-color: rgba(108, 92, 231, 0.1);
+    border-bottom: none;
+    padding: 15px 20px;
+}
+
+.crud-card-header h4 {
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Action links in lists */
+.action-links {
+    display: flex;
+    gap: 8px;
+}
+
+.action-links a {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Dark mode compatibility */
+.dark-mode .table thead th {
+    background-color: var(--dark-primary);
+    color: var(--dark-text-primary);
+    border-color: var(--dark-primary-hover);
+}
+
+.dark-mode .crud-card-header {
+    background-color: rgba(108, 92, 231, 0.2);
+}
+
+.dark-mode .crud-card-header h4 {
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .form-control {
+    background-color: var(--dark-card-background);
+    border-color: var(--dark-border-color);
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .form-control:focus {
+    border-color: var(--dark-primary);
+    box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.4);
+}

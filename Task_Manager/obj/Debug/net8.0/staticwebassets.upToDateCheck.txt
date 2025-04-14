@@ -1,3 +1,6 @@
+wwwroot\css\colors.css
+wwwroot\css\crud.css
+wwwroot\css\notifications.css
 wwwroot\css\site.css
 wwwroot\dist\assets\img\AdminLTEFullLogo.png
 wwwroot\dist\assets\img\AdminLTELogo.png
@@ -81,6 +84,9 @@ wwwroot\dist\pages\widgets\info-box.html
 wwwroot\dist\pages\widgets\small-box.html
 wwwroot\favicon.ico
 wwwroot\js\darkmode.js
+wwwroot\js\notificationChecker.js
+wwwroot\js\notificationService.js
+wwwroot\js\notificationUI.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

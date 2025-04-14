@@ -20,6 +20,7 @@ namespace Task_Manager.Controllers
             _roleManager = roleManager;
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var users = _userManager.Users.ToList();
@@ -40,6 +41,7 @@ namespace Task_Manager.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateUserRole([FromBody] UpdateUserRoleViewModel model)
         {
             if (model == null || string.IsNullOrEmpty(model.UserId) || string.IsNullOrEmpty(model.Role))
@@ -67,9 +69,9 @@ namespace Task_Manager.Controllers
             }
         }
 
-        // ✅ DELETE USER FUNCTIONALITY
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser([FromBody] DeleteUserViewModel model)
         {
             if (model == null || string.IsNullOrEmpty(model.UserId))

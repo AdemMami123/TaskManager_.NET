@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "juvY4KiUTiEiNvZOi46VsGwS4ETSMxOxI2Zt4wkS2aU=",
+  "Hash": "+Em+s3peZYLm+cWoRvIrb1U/z5Ea2exVNhG1yzKq9fk=",
   "Source": "Task_Manager",
   "BasePath": "_content/Task_Manager",
   "Mode": "Default",
@@ -1317,6 +1317,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Task_Manager.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\colors.css",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "css/colors#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nfiis5aof4",
+      "Integrity": "0507vbDY/wMdwnhHaYlILeSdpOwgx+glCVc6UxoKNKk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\colors.css"
+    },
+    {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\crud.css",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "css/crud#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "41p7onc0uw",
+      "Integrity": "eA4ktG7lCz4NZ2+4KmWtvvZYo+rc2wT8EIWpn5F2Kes=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\crud.css"
+    },
+    {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\notifications.css",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "css/notifications#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tpxkok8u61",
+      "Integrity": "sc/4Ejkr7EolDVlpxCE0v9op15UHOjHRjxHgvIjMeC0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\notifications.css"
     },
     {
       "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\site.css",
@@ -3062,6 +3125,69 @@
       "OriginalItemSpec": "wwwroot\\js\\darkmode.js"
     },
     {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationChecker.js",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "js/notificationChecker#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xfjoq6vxex",
+      "Integrity": "bdrGNbXxmNENvI6CzMTYefnhD5+uJ0f9R+5tHXwT/ZU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\notificationChecker.js"
+    },
+    {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationService.js",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "js/notificationService#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fh92ba9b0t",
+      "Integrity": "gz/Oja57nX4Tnifi18L09JiaX+/fBF8BYRXtLG+VyXQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\notificationService.js"
+    },
+    {
+      "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationUI.js",
+      "SourceId": "Task_Manager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\",
+      "BasePath": "_content/Task_Manager",
+      "RelativePath": "js/notificationUI#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "d1lelp7svp",
+      "Integrity": "AQs65zee/o8UPuFeQcdg9BpJKPA6+jkU9VcRkjh5AQo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\notificationUI.js"
+    },
+    {
       "Identity": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\site.js",
       "SourceId": "Task_Manager",
       "SourceType": "Discovered",
@@ -4281,6 +4407,252 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/colors.css",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\colors.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2096"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0507vbDY/wMdwnhHaYlILeSdpOwgx+glCVc6UxoKNKk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 13:26:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0507vbDY/wMdwnhHaYlILeSdpOwgx+glCVc6UxoKNKk="
+        }
+      ]
+    },
+    {
+      "Route": "css/colors.nfiis5aof4.css",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\colors.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2096"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0507vbDY/wMdwnhHaYlILeSdpOwgx+glCVc6UxoKNKk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 13:26:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nfiis5aof4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/colors.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0507vbDY/wMdwnhHaYlILeSdpOwgx+glCVc6UxoKNKk="
+        }
+      ]
+    },
+    {
+      "Route": "css/crud.41p7onc0uw.css",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\crud.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eA4ktG7lCz4NZ2+4KmWtvvZYo+rc2wT8EIWpn5F2Kes=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 13:26:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "41p7onc0uw"
+        },
+        {
+          "Name": "label",
+          "Value": "css/crud.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eA4ktG7lCz4NZ2+4KmWtvvZYo+rc2wT8EIWpn5F2Kes="
+        }
+      ]
+    },
+    {
+      "Route": "css/crud.css",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\crud.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2438"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eA4ktG7lCz4NZ2+4KmWtvvZYo+rc2wT8EIWpn5F2Kes=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 13:26:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eA4ktG7lCz4NZ2+4KmWtvvZYo+rc2wT8EIWpn5F2Kes="
+        }
+      ]
+    },
+    {
+      "Route": "css/notifications.css",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\notifications.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3507"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sc/4Ejkr7EolDVlpxCE0v9op15UHOjHRjxHgvIjMeC0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 13:26:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sc/4Ejkr7EolDVlpxCE0v9op15UHOjHRjxHgvIjMeC0="
+        }
+      ]
+    },
+    {
+      "Route": "css/notifications.tpxkok8u61.css",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\notifications.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3507"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sc/4Ejkr7EolDVlpxCE0v9op15UHOjHRjxHgvIjMeC0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 13:26:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tpxkok8u61"
+        },
+        {
+          "Name": "label",
+          "Value": "css/notifications.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sc/4Ejkr7EolDVlpxCE0v9op15UHOjHRjxHgvIjMeC0="
+        }
+      ]
+    },
     {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\css\\site.css",
@@ -13304,6 +13676,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "js/notificationChecker.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationChecker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bdrGNbXxmNENvI6CzMTYefnhD5+uJ0f9R+5tHXwT/ZU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 11:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bdrGNbXxmNENvI6CzMTYefnhD5+uJ0f9R+5tHXwT/ZU="
+        }
+      ]
+    },
+    {
+      "Route": "js/notificationChecker.xfjoq6vxex.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationChecker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bdrGNbXxmNENvI6CzMTYefnhD5+uJ0f9R+5tHXwT/ZU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 11:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xfjoq6vxex"
+        },
+        {
+          "Name": "label",
+          "Value": "js/notificationChecker.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bdrGNbXxmNENvI6CzMTYefnhD5+uJ0f9R+5tHXwT/ZU="
+        }
+      ]
+    },
+    {
+      "Route": "js/notificationService.fh92ba9b0t.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationService.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4462"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gz/Oja57nX4Tnifi18L09JiaX+/fBF8BYRXtLG+VyXQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 11:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fh92ba9b0t"
+        },
+        {
+          "Name": "label",
+          "Value": "js/notificationService.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gz/Oja57nX4Tnifi18L09JiaX+/fBF8BYRXtLG+VyXQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/notificationService.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationService.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4462"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gz/Oja57nX4Tnifi18L09JiaX+/fBF8BYRXtLG+VyXQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 11:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gz/Oja57nX4Tnifi18L09JiaX+/fBF8BYRXtLG+VyXQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/notificationUI.d1lelp7svp.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationUI.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6683"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AQs65zee/o8UPuFeQcdg9BpJKPA6+jkU9VcRkjh5AQo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 11:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d1lelp7svp"
+        },
+        {
+          "Name": "label",
+          "Value": "js/notificationUI.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AQs65zee/o8UPuFeQcdg9BpJKPA6+jkU9VcRkjh5AQo="
+        }
+      ]
+    },
+    {
+      "Route": "js/notificationUI.js",
+      "AssetFile": "C:\\Users\\ademm\\source\\repos\\Task_Manager\\Task_Manager\\wwwroot\\js\\notificationUI.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6683"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AQs65zee/o8UPuFeQcdg9BpJKPA6+jkU9VcRkjh5AQo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Apr 2025 11:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AQs65zee/o8UPuFeQcdg9BpJKPA6+jkU9VcRkjh5AQo="
         }
       ]
     },

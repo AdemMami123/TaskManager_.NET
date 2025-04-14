@@ -1,33 +1,45 @@
 ﻿@model Task_Manager.Models.Manager
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Manager";
 }
 
-<h1>Create</h1>
-
-<h4>Manager</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0"><i class="fas fa-user-plus me-2"></i>Create New Manager</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <div class="form-group mb-4">
+                            <label asp-for="Name" class="form-label fw-bold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input asp-for="Name" class="form-control" placeholder="Enter manager name" />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="form-group d-flex justify-content-between mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save me-1"></i> Create Manager
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 }

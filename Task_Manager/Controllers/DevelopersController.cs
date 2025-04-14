@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Task_Manager.Data;
@@ -8,6 +9,7 @@ using Task_Manager.ViewModels;
 
 namespace Task_Manager.Controllers
 {
+    [Authorize(Roles = "Admin,Manager,Developer")]
     public class DevelopersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -17,7 +19,7 @@ namespace Task_Manager.Controllers
             _context = context;
         }
 
-        // GET: Developers
+        // GET: Developers (accessible to all authorized roles)
         public async Task<IActionResult> Index()
         {
             // Load developers including their Tasks and each Task's Project.
@@ -41,7 +43,7 @@ namespace Task_Manager.Controllers
             return View(viewModel);
         }
 
-        // GET: Developers/Details/5
+        // GET: Developers/Details/5 (accessible to all authorized roles)
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -74,15 +76,17 @@ namespace Task_Manager.Controllers
             return View(taskDetails);
         }
 
-        // GET: Developers/Create
+        // GET: Developers/Create (restricted to Admin and Manager)
+        [Authorize(Roles = "Admin,Manager")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Developers/Create
+        // POST: Developers/Create (restricted to Admin and Manager)
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Create([Bind("Id,Name,Position")] Developer developer)
         {
             if (ModelState.IsValid)
@@ -94,7 +98,8 @@ namespace Task_Manager.Controllers
             return View(developer);
         }
 
-        // GET: Developers/Edit/5
+        // GET: Developers/Edit/5 (restricted to Admin and Manager)
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -110,9 +115,10 @@ namespace Task_Manager.Controllers
             return View(developer);
         }
 
-        // POST: Developers/Edit/5
+        // POST: Developers/Edit/5 (restricted to Admin and Manager)
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Position")] Developer developer)
         {
             if (id != developer.Id)
@@ -143,7 +149,8 @@ namespace Task_Manager.Controllers
             return View(developer);
         }
 
-        // GET: Developers/Delete/5
+        // GET: Developers/Delete/5 (restricted to Admin and Manager)
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -161,9 +168,10 @@ namespace Task_Manager.Controllers
             return View(developer);
         }
 
-        // POST: Developers/Delete/5
+        // POST: Developers/Delete/5 (restricted to Admin and Manager)
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var developer = await _context.Developers.FindAsync(id);

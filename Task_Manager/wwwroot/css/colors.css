@@ -1,0 +1,89 @@
+:root {
+    /* Light mode colors */
+    --primary-color: #6c5ce7;
+    --primary-hover: #5649c0;
+    --secondary-color: #a29bfe;
+    --accent-color: #00cec9;
+    --background-light: #f9f9f9;
+    --card-background: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #888888;
+    --border-color: #e0e0e0;
+    --success-color: #55efc4;
+    --warning-color: #ffeaa7;
+    --danger-color: #ff7675;
+    --info-color: #74b9ff;
+    
+    /* Dark mode colors */
+    --dark-primary: #6c5ce7;
+    --dark-primary-hover: #8378e9;
+    --dark-background: #2d3436;
+    --dark-card-background: #353b48;
+    --dark-text-primary: #f5f6fa;
+    --dark-text-secondary: #dcdde1;
+    --dark-text-muted: #b2bec3;
+    --dark-border-color: #4a4a4a;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-info {
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: var(--text-primary);
+}
+
+/* Link styles */
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: none;
+}
+
+/* Table styles */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(108, 92, 231, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(108, 92, 231, 0.1);
+}
+
+/* Form controls */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+}

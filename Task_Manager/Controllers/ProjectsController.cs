@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Task_Manager.ViewModels;
 
 namespace Task_Manager.Controllers
 {
+    [Authorize(Roles = "Admin,Manager,Developer")]
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,7 +20,7 @@ namespace Task_Manager.Controllers
             _context = context;
         }
 
-        // GET: Projects
+        // GET: Projects (accessible to all authorized roles)
         public async Task<IActionResult> Index()
         {
             // Load projects with Manager and Tasks
@@ -40,7 +42,7 @@ namespace Task_Manager.Controllers
             return View(viewModel);
         }
 
-        // GET: Projects/Details/5
+        // GET: Projects/Details/5 (accessible to all authorized roles)
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -75,16 +77,18 @@ namespace Task_Manager.Controllers
             return View(taskDetails);
         }
 
-        // GET: Projects/Create
+        // GET: Projects/Create (restricted to Admin and Manager)
+        [Authorize(Roles = "Admin,Manager")]
         public IActionResult Create()
         {
             ViewData["ManagerId"] = new SelectList(_context.Managers, "Id", "Name");
             return View();
         }
 
-        // POST: Projects/Create
+        // POST: Projects/Create (restricted to Admin and Manager)
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Create([Bind("Id,Name,ManagerId,Deadline")] Project project)
         {
             if (ModelState.IsValid)
@@ -97,7 +101,8 @@ namespace Task_Manager.Controllers
             return View(project);
         }
 
-        // GET: Projects/Edit/5
+        // GET: Projects/Edit/5 (restricted to Admin and Manager)
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -114,9 +119,10 @@ namespace Task_Manager.Controllers
             return View(project);
         }
 
-        // POST: Projects/Edit/5
+        // POST: Projects/Edit/5 (restricted to Admin and Manager)
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ManagerId,Deadline")] Project project)
         {
             if (id != project.Id)
@@ -148,7 +154,8 @@ namespace Task_Manager.Controllers
             return View(project);
         }
 
-        // GET: Projects/Delete/5
+        // GET: Projects/Delete/5 (restricted to Admin and Manager)
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -167,9 +174,10 @@ namespace Task_Manager.Controllers
             return View(project);
         }
 
-        // POST: Projects/Delete/5
+        // POST: Projects/Delete/5 (restricted to Admin and Manager)
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var project = await _context.Projects.FindAsync(id);
