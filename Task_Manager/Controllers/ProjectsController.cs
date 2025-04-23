@@ -82,6 +82,7 @@ namespace Task_Manager.Controllers
         public IActionResult Create()
         {
             ViewData["ManagerId"] = new SelectList(_context.Managers, "Id", "Name");
+            ViewData["DeveloperIds"] = new SelectList(_context.Developers, "Id", "Name");
             return View();
         }
 
@@ -89,16 +90,51 @@ namespace Task_Manager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Manager")]
-        public async Task<IActionResult> Create([Bind("Id,Name,ManagerId,Deadline")] Project project)
+        public async Task<IActionResult> Create(ProjectCreateViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
+                // Create the project
+                var project = new Project
+                {
+                    Name = viewModel.Name,
+                    ManagerId = viewModel.ManagerId,
+                    Deadline = viewModel.Deadline
+                };
+
                 _context.Add(project);
                 await _context.SaveChangesAsync();
+
+                // Create tasks for the project
+                if (viewModel.Tasks != null && viewModel.Tasks.Count > 0)
+                {
+                    foreach (var taskModel in viewModel.Tasks)
+                    {
+                        if (!string.IsNullOrEmpty(taskModel.Name))
+                        {
+                            var task = new TaskItem
+                            {
+                                Name = taskModel.Name,
+                                DeveloperId = taskModel.DeveloperId,
+                                ProjectId = project.Id,
+                                Deadline = taskModel.Deadline ?? viewModel.Deadline, // Use project deadline if task deadline not specified
+                                Progress = 0, // Initial progress is 0
+                                IsCompleted = false // Initial completion status is false
+                            };
+                            
+                            _context.Tasks.Add(task);
+                        }
+                    }
+                    
+                    await _context.SaveChangesAsync();
+                }
+                
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ManagerId"] = new SelectList(_context.Managers, "Id", "Name", project.ManagerId);
-            return View(project);
+            
+            ViewData["ManagerId"] = new SelectList(_context.Managers, "Id", "Name", viewModel.ManagerId);
+            ViewData["DeveloperIds"] = new SelectList(_context.Developers, "Id", "Name");
+            return View(viewModel);
         }
 
         // GET: Projects/Edit/5 (restricted to Admin and Manager)

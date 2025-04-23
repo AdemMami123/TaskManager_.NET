@@ -67,7 +67,7 @@ namespace Task_Manager.Controllers
             {
                 TaskName = t.Name,
                 ProjectName = t.Project != null ? t.Project.Name : "N/A",
-                ProgressRate = t.Progress // Assuming this represents progress (e.g., percentage)
+                ProgressRate = t.Progress 
             }).ToList();
 
             // Pass the developer's name to the view via ViewBag.

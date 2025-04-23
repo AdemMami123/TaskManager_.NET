@@ -10,7 +10,7 @@ namespace Task_Manager.Controllers
 {
     [Authorize]
     [Route("api")]
-    [ApiController]
+    [ApiController] // allows authenticated users to fetch simplified lists of projects and tasks from the database
     public class ApiController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -37,8 +37,8 @@ namespace Task_Manager.Controllers
                 {
                     p.Id,
                     p.Name,
-                    // Assume a string representation of the due date
-                    DueDate = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd") // Placeholder date
+                    
+                    DueDate = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd") 
                 })
                 .ToListAsync();
 
@@ -59,7 +59,7 @@ namespace Task_Manager.Controllers
                 .Select(t => new
                 {
                     t.Id,
-                    Title = "Task", // Default placeholder
+                    Title = "Task",
                     DueDate = DateTime.Now.AddDays(7).ToString("yyyy-MM-dd") // Placeholder date
                 })
                 .ToListAsync();

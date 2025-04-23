@@ -1,4 +1,4 @@
-﻿@model Task_Manager.Models.Project
+﻿@model Task_Manager.ViewModels.ProjectCreateViewModel
 
 @{
     ViewData["Title"] = "Create Project";
@@ -6,14 +6,16 @@
 
 <div class="container py-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">Create New Project</h3>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create">
+                    <form asp-action="Create" id="createProjectForm">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <h4 class="mb-3">Project Information</h4>
                         
                         <div class="form-group mb-3">
                             <label asp-for="Name" class="form-label fw-bold">Project Name</label>
@@ -27,9 +29,23 @@
                         </div>
                         
                         <div class="form-group mb-4">
-                            <label asp-for="Deadline" class="form-label fw-bold">Deadline</label>
-                            <input asp-for="Deadline" class="form-control form-control-lg" />
+                            <label asp-for="Deadline" class="form-label fw-bold">Project Deadline</label>
+                            <input asp-for="Deadline" class="form-control form-control-lg" type="date" />
                             <span asp-validation-for="Deadline" class="text-danger"></span>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h4 class="mb-3">Project Tasks</h4>
+                        
+                        <div id="taskContainer">
+                            <!-- Task entries will be dynamically added here -->
+                        </div>
+                        
+                        <div class="mb-4">
+                            <button type="button" id="addTaskBtn" class="btn btn-success">
+                                <i class="bi bi-plus-circle"></i> Add New Task
+                            </button>
                         </div>
                         
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
@@ -43,6 +59,93 @@
     </div>
 </div>
 
+<!-- Task template (hidden) -->
+<template id="taskTemplate">
+    <div class="task-entry card mb-3">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="card-title mb-0">Task #<span class="task-number"></span></h5>
+                <button type="button" class="btn btn-sm btn-danger remove-task-btn">
+                    <i class="bi bi-trash"></i> Remove
+                </button>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Task Name</label>
+                    <input type="text" name="Tasks[0].Name" class="form-control task-name" required />
+                </div>
+                
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Assigned Developer</label>
+                    <select name="Tasks[0].DeveloperId" class="form-select task-developer" required>
+                        @foreach (var item in ViewBag.DeveloperIds)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Task Deadline (optional)</label>
+                    <input type="date" name="Tasks[0].Deadline" class="form-control task-deadline" />
+                    <small class="text-muted">If left empty, project deadline will be used</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        $(document).ready(function() {
+            let taskCounter = 0;
+            
+            // Function to add a new task
+            function addTask() {
+                const template = document.getElementById('taskTemplate');
+                const taskContainer = document.getElementById('taskContainer');
+                const clone = document.importNode(template.content, true);
+                
+                // Update task number and indices
+                $(clone).find('.task-number').text(taskCounter + 1);
+                $(clone).find('.task-name').attr('name', `Tasks[${taskCounter}].Name`);
+                $(clone).find('.task-developer').attr('name', `Tasks[${taskCounter}].DeveloperId`);
+                $(clone).find('.task-deadline').attr('name', `Tasks[${taskCounter}].Deadline`);
+                
+                // Add event listener to remove button
+                $(clone).find('.remove-task-btn').on('click', function() {
+                    $(this).closest('.task-entry').remove();
+                    // Renumber tasks
+                    $('.task-number').each(function(idx) {
+                        $(this).text(idx + 1);
+                    });
+                    // Reindex form fields
+                    reindexTasks();
+                });
+                
+                taskContainer.appendChild(clone);
+                taskCounter++;
+            }
+            
+            // Function to reindex tasks after removal
+            function reindexTasks() {
+                $('.task-entry').each(function(idx) {
+                    $(this).find('.task-name').attr('name', `Tasks[${idx}].Name`);
+                    $(this).find('.task-developer').attr('name', `Tasks[${idx}].DeveloperId`);
+                    $(this).find('.task-deadline').attr('name', `Tasks[${idx}].Deadline`);
+                });
+            }
+            
+            // Add task button handler
+            $('#addTaskBtn').on('click', function() {
+                addTask();
+            });
+            
+            // Add one task by default
+            addTask();
+        });
+    </script>
 }
